@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Component Styles: KPI Cards, New Initiatives, Category Tabs
+   ========================================================================== */
+
+/* 5대 KPI 카드 그리드 */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--color-primary-light);
+}
+
+.kpi-card.accent-blue::before { background-color: var(--color-accent); }
+.kpi-card.accent-emerald::before { background-color: var(--color-positive); }
+.kpi-card.accent-amber::before { background-color: var(--color-new); }
+.kpi-card.accent-purple::before { background-color: var(--color-purple); }
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.kpi-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.kpi-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.kpi-icon.blue { background-color: #eff6ff; color: var(--color-accent); }
+.kpi-icon.emerald { background-color: #ecfdf5; color: var(--color-positive); }
+.kpi-icon.amber { background-color: #fffbeb; color: var(--color-new); }
+.kpi-icon.purple { background-color: #f5f3ff; color: var(--color-purple); }
+
+.kpi-value-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.kpi-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.kpi-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* 신규 사업 특화 섹션 */
+.new-initiative-box {
+  background: linear-gradient(135deg, #ffffff 0%, #fffdfa 100%);
+  border: 1px solid var(--color-new-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.new-initiative-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #fef3c7;
+}
+
+.new-badge-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.new-ratio-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid #fed7aa;
+}
+
+.new-ratio-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #9a3412;
+}
+
+.new-ratio-bar-wrapper {
+  width: 140px;
+  height: 8px;
+  background-color: #f1f5f9;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.new-ratio-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+.new-ratio-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-new);
+}
+
+/* 신규 사업 카드 그리드 */
+.new-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.1rem;
+}
+
+.new-card-item {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+}
+
+.new-card-item:hover {
+  transform: translateY(-3px);
+  border-color: #fcd34d;
+  box-shadow: var(--shadow-md);
+}
+
+.new-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.new-card-category {
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  background-color: #f1f5f9;
+  color: #475569;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.new-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.new-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 0.85rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.new-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed var(--border-light);
+  padding-top: 0.65rem;
+}
+
+.new-card-budget {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+.new-card-tag {
+  font-size: 0.72rem;
+  color: var(--color-new);
+  font-weight: 700;
+  background-color: var(--color-new-bg);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* 분야(중점영역) 탭 필터 */
+.category-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 1.25rem;
+  scrollbar-width: thin;
+}
+
+.category-tab-btn {
+  white-space: nowrap;
+  padding: 8px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.category-tab-btn:hover {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-main);
+  border-color: var(--border-medium);
+}
+
+.category-tab-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 4px rgba(26, 54, 93, 0.2);
+}
